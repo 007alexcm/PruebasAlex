@@ -1,20 +1,39 @@
 package com.sinensia;
 
-public class Jugador extends EquipoFutbol{
+public class Jugador extends EquipoFutbol {
     //Atributos
-    String posicion;
-    int dorsal;
+    private String posicion; //delantero, medio, defensa, portero
+    private int dorsal;
+    private boolean lesion; //para determinar si pueden jugar
     //Métodos
-    /**if (posicion == "portero") {
-        void parar() {
-        IO.println("El jugador para.");
-        }
-    } else {
-        void chutar() {
-        IO.println("El jugador chuta.");
-        }
-    }*/
     void pasar() {
-        IO.println("El jugador pasa.");
+        IO.println("El jugador pasa");
     }
+    void accionobjetivo() {
+        //EquipoFutbol.contadorChuts++;
+        IO.println("El jugador chuta a puerta");
+    }
+    
+    public String getPosicion() {
+        return posicion;
+    }
+    public void setPosicion(String posicion) {
+        this.posicion = posicion;
+    }
+    public int getDorsal() {
+        return dorsal;
+    }
+    public void setDorsal(int dorsal) {
+        this.dorsal = dorsal;
+    }
+    public Boolean getLesion() {
+        return lesion;
+    }
+    public void setLesion(Boolean lesion) {
+        this.lesion = lesion;
+    }
+
+    /**public interface Parable {
+        void parar();
+    }*/
 }

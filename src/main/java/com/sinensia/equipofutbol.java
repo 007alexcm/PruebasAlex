@@ -6,12 +6,11 @@ public abstract class EquipoFutbol {
     int edad;
 
     //Constructor
-/**public class EquipoFutbol(String n, int e){
+/**public abstract class EquipoFutbol(String n, int e){
         nombre = n;
         edad = e;
     } 
 */           
-    //Metodos
-
+    //public int contadorChuts = 0; quiero que cuenten los disparos a puerta
 }
 
