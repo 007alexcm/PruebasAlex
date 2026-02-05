@@ -28,6 +28,9 @@ public class App {
         miPlantilla.add(jug3);
         miPlantilla.add(jug4);
         miPlantilla.add(jug5);
+        miPlantilla.add(jug2);
+
+        miPlantilla.contains(jug3);
         
         for (Jugador jug : miPlantilla) {
             IO.println(jug.nombre);
