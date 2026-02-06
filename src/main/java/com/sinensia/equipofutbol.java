@@ -1,16 +1,14 @@
 package com.sinensia;
 
-public abstract class EquipoFutbol {
-    //Atributos
-    String nombre;
-    int edad;
+import java.util.ArrayList;
+import java.util.List;
+
+public class EquipoFutbol {
+    
+    private List<Jugador> plantilla = new ArrayList<>();
 
     //Constructor
-/**public abstract class EquipoFutbol(String n, int e){
-        nombre = n;
-        edad = e;
-    } 
-*/           
-    //public int contadorChuts = 0; quiero que cuenten los disparos a puerta
+    public EquipoFutbol() {}
+           
 }
 
