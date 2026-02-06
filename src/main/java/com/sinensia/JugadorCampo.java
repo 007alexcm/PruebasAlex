@@ -10,4 +10,5 @@ public final class JugadorCampo extends Jugador implements Chutable {
     public JugadorCampo (String nombre){
         super(nombre);
     }
+
 }

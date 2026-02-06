@@ -18,8 +18,8 @@ public class EquipoFutbol {
     }
     
     //Getter y Setter
-    public String getNombreEquipo(){ return nombreEquipo; }
-    public List<Jugador> getPlantilla(){ return plantilla; }
+    public String getNombreEquipo() { return nombreEquipo; }
+    public List<Jugador> getPlantilla() { return plantilla; }
     public void setNombreEquipo (String nombreEquipo) {
         this.nombreEquipo = nombreEquipo;
     }
@@ -28,15 +28,32 @@ public class EquipoFutbol {
     }
 
     //Métodos
-    public void muestraEquipo(){
-        for (Jugador jug : this.plantilla) {
-            IO.println(jug.getNombre());
-        }
+    public void muestraEquipo() {
+        plantilla.forEach(jug -> IO.println(jug.getNombre()));
     }
-    public void fichar(Jugador jug){
+    public void fichar(Jugador jug) {
         this.plantilla.add(jug);
-        IO.println(jug.getNombre() + " nuevo jugador de " + this.nombreEquipo);
+        IO.println("FICHADO " + jug.getNombre() + " nuevo jugador de " + this.nombreEquipo);
     }
-    
+    public void finContrato(Jugador jug) {
+        this.plantilla.remove(jug);
+        IO.println("Adiós a " + jug.getNombre());
+    }
+    //Este método devuelve los porteros de un equipo
+    public EquipoFutbol soloPorteros() {
+        List<Jugador> porteros = new ArrayList<>();
+            for (Jugador j : plantilla) {
+                if (j instanceof Portero) porteros.add(j);
+            }
+        return new EquipoFutbol("Porteros de " + nombreEquipo, porteros);
+    }
+    //Este método devuelve los jugadores de campo de un equipo
+    public EquipoFutbol sinPorteros() {
+        List<Jugador> noporteros = new ArrayList<>();
+            for (Jugador j : plantilla) {
+                if (j instanceof JugadorCampo) noporteros.add(j);
+            }
+        return new EquipoFutbol("Jugadores de campo de " + nombreEquipo, noporteros);
+    }
 }
 

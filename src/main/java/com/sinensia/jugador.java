@@ -1,16 +1,20 @@
 package com.sinensia;
 
-public abstract sealed class Jugador permits JugadorCampo, Portero {
+public abstract sealed class Jugador implements Comparable<Jugador> permits JugadorCampo, Portero {
     //Atributos
     private String nombre;
     private String posicion; //delantero, medio, defensa, portero
-    private int dorsal;
-    private Boolean lesion; //para determinar si pueden jugar
+    private Integer dorsal;
+    private boolean lesion; //para determinar si pueden jugar
     
-    // Variable estática para contar cada instancia de felino.
     //private static int cantidadJugadores = 0;   //Aún no se usa
     
     //Métodos
+    @Override
+    public int compareTo(Jugador j) {
+        return this.dorsal.compareTo(j.dorsal);
+    }
+
     public void pasar() {
         IO.println(this.nombre + " pasa");
     }

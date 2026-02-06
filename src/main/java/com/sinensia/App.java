@@ -13,10 +13,12 @@ public class App {
         Jugador jug6 = new JugadorCampo("Pepe");
         jug1.setDorsal(1);
         jug1.setPosicion("portero");
+        jug2.setDorsal(4);
+        //IO.println(jug1.compareTo(jug2));
 
-        IO.println(jug1.getNombre() + " con el número " +
-                jug1.getDorsal() + " es " + jug1.getPosicion());
-        jug1.pasar();
+        //IO.println(jug1.getNombre() + " con el número " +
+        //        jug1.getDorsal() + " es " + jug1.getPosicion());
+        //jug1.pasar();
         //jug1.accionObjetivo();
         //jug2.accionObjetivo();
         //jug2.chutar();
@@ -28,8 +30,14 @@ public class App {
         EquipoFutbol miEquipo = new EquipoFutbol("España", miPlantilla);
         IO.println("Mi plantilla es: ");
         miEquipo.muestraEquipo();
-        miEquipo.fichar(jug5);
-        IO.println("Tras el fichaje mi plantilla es: ");
-        miEquipo.muestraEquipo();
+        
+        IO.println(miEquipo.soloPorteros().getNombreEquipo());
+        miEquipo.soloPorteros().muestraEquipo();
+        IO.println(miEquipo.sinPorteros().getNombreEquipo());
+        miEquipo.sinPorteros().muestraEquipo();
+        //miEquipo.fichar(jug5);
+        //miEquipo.finContrato(jug2);
+        //IO.println("Tras el fichaje mi plantilla es: ");
+        //miEquipo.muestraEquipo();
     }
 }
