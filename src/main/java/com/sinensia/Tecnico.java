@@ -1,5 +1,5 @@
 package com.sinensia;
 
-public class Tecnico extends EquipoFutbol {
+public class Tecnico {
     String rol; //entrenador, fisio, médico...
 }

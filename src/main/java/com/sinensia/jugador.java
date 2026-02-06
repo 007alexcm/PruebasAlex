@@ -1,26 +1,29 @@
 package com.sinensia;
 
-public abstract class Jugador {
+public abstract sealed class Jugador permits JugadorCampo, Portero {
     //Atributos
     private String nombre;
     private String posicion; //delantero, medio, defensa, portero
     private int dorsal;
     private Boolean lesion; //para determinar si pueden jugar
+    
+    // Variable estática para contar cada instancia de felino.
+    //private static int cantidadJugadores = 0;   //Aún no se usa
+    
     //Métodos
-    void pasar() {
-        IO.println("El jugador pasa");
+    public void pasar() {
+        IO.println(this.nombre + " pasa");
     }
-    void accionObjetivo() {
-        //EquipoFutbol.contadorChuts++;
+    public void accionObjetivo() {
         IO.println("El jugador chuta a puerta");
     }
     
-    public String getNombre() { return nombre; }
-    public String getPosicion() { return posicion; }
+    public String getNombre() { return nombre; }    //los getter permiten
+    public String getPosicion() { return posicion; } // obtener los atributos
     public int getDorsal() { return dorsal; }
     public Boolean getLesion() { return lesion; }
-    public void setNombre (String nombre) {
-        this.nombre = nombre;
+    public void setNombre (String nombre) {     //los setter me permiten 
+        this.nombre = nombre;                   // cambiar los atributos
     }
     public void setPosicion(String posicion) {
         this.posicion = posicion;
