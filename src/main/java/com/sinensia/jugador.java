@@ -25,7 +25,7 @@ public abstract sealed class Jugador implements Comparable<Jugador> permits Juga
     public String getNombre() { return nombre; }    //los getter permiten
     public String getPosicion() { return posicion; } // obtener los atributos
     public int getDorsal() { return dorsal; }
-    public Boolean getLesion() { return lesion; }
+    public boolean getLesion() { return lesion; }
     public void setNombre (String nombre) {     //los setter me permiten 
         this.nombre = nombre;                   // cambiar los atributos
     }
@@ -35,12 +35,12 @@ public abstract sealed class Jugador implements Comparable<Jugador> permits Juga
     public void setDorsal(int dorsal) {
         this.dorsal = dorsal;
     } 
-    public void setLesion(Boolean lesion) {
+    public void setLesion(boolean lesion) {
         this.lesion = lesion;
     }
 
     //Constructor 
-    public Jugador(String nombre, String posicion, int dorsal, Boolean lesion) {
+    public Jugador(String nombre, String posicion, int dorsal, boolean lesion) {
         this.nombre = nombre;
         this.posicion = posicion;
         this.dorsal = dorsal;

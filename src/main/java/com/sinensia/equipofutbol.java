@@ -7,6 +7,7 @@ public class EquipoFutbol {
     
     private String nombreEquipo;
     private List<Jugador> plantilla = new ArrayList<>();
+    static final int MAX = 3;
 
     //Constructor
     public EquipoFutbol (String nombreEquipo, List<Jugador> plantilla) {
@@ -32,14 +33,15 @@ public class EquipoFutbol {
         plantilla.forEach(jug -> IO.println(jug.getNombre()));
     }
     public void fichar(Jugador jug) {
-        this.plantilla.add(jug);
-        IO.println("FICHADO " + jug.getNombre() + " nuevo jugador de " + this.nombreEquipo);
+        plantilla.add(jug);
+        IO.println("FICHADO " + jug.getNombre() + " nuevo jugador de " + nombreEquipo);
     }
     public void finContrato(Jugador jug) {
-        this.plantilla.remove(jug);
+        plantilla.remove(jug);
         IO.println("Adiós a " + jug.getNombre());
     }
     //Este método devuelve los porteros de un equipo
+    //lo hago primero con estructuras for tradicional
     public EquipoFutbol soloPorteros() {
         List<Jugador> porteros = new ArrayList<>();
             for (Jugador j : plantilla) {
@@ -48,12 +50,18 @@ public class EquipoFutbol {
         return new EquipoFutbol("Porteros de " + nombreEquipo, porteros);
     }
     //Este método devuelve los jugadores de campo de un equipo
+    //ahora lo hago mejor con streams().filter().toList()
     public EquipoFutbol sinPorteros() {
-        List<Jugador> noporteros = new ArrayList<>();
-            for (Jugador j : plantilla) {
-                if (j instanceof JugadorCampo) noporteros.add(j);
-            }
-        return new EquipoFutbol("Jugadores de campo de " + nombreEquipo, noporteros);
+        return new EquipoFutbol("Jugadores de campo de " + nombreEquipo, 
+        plantilla.stream().filter(JugadorCampo.class::isInstance).toList());
+    }
+    public EquipoFutbol proxPartido() {
+        //primero vamos a quitarnos a los lesionados
+        List<Jugador> sanos = plantilla.stream().filter(j -> !j.getLesion()).toList();
+        //se devuelven los mejores jugadores disponibles (12 como max)
+        if (sanos.size() < MAX){
+            return new EquipoFutbol (nombreEquipo, sanos);//.sort(Comparable::compareTo));
+        } else return new EquipoFutbol (nombreEquipo, sanos.subList(0, MAX));
     }
 }
 
