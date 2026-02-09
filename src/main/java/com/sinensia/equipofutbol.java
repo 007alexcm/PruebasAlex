@@ -42,7 +42,7 @@ public class EquipoFutbol {
     }
     //Este método devuelve los porteros de un equipo
     //lo hago primero con estructuras for tradicional
-    public EquipoFutbol soloPorteros() {
+    public EquipoFutbol soloPorteros() {        //Usar genério T extends Jugador
         List<Jugador> porteros = new ArrayList<>();
             for (Jugador j : plantilla) {
                 if (j instanceof Portero) porteros.add(j);

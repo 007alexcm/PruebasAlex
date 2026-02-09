@@ -57,12 +57,17 @@ public class App {
         } catch (IOException e) {
             IO.println("ERROR de I/O: " + e.getMessage());
         }*/
-        IO.println("Dame tu nombre ");
-        try (BufferedReader tuNombre = new BufferedReader(
+
+        //A tener en cuenta: nombre puede ser null, pueden no ser letras
+        IO.println("Hola nuevo jugador, ¿cuál es tu nombre? ");
+        String name = null;
+        try (BufferedReader br = new BufferedReader(
             new InputStreamReader(System.in, StandardCharsets.UTF_8))){
-                String line = tuNombre.readLine();
-            } catch (IOException e) {
-                IO.println("ERROR de I/O: " + e.getMessage());
-            }
+                name = br.readLine();
+        } catch (IOException e) {
+            IO.println("ERROR de I/O: " + e.getMessage());
+        }
+        //Falta pedir el resto de info con sus limitaciones
+        //Lo ficho, y ya a hacer lo demás
     }   
 }
