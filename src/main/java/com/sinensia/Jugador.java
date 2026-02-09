@@ -46,7 +46,7 @@ public abstract sealed class Jugador implements Comparable<Jugador> permits Juga
         this.dorsal = dorsal;
         this.lesion = lesion;
     }
-    public Jugador (String nombre) {
+    public Jugador(String nombre) {
         this.nombre = nombre;
     }
 
@@ -56,3 +56,4 @@ public abstract sealed class Jugador implements Comparable<Jugador> permits Juga
         void parar();
     }*/
 }
+
