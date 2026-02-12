@@ -10,17 +10,14 @@ import java.util.List;
 
 public class App {
     public static void main(String[] args) {
-        Jugador jug1 = new Portero("Casillas");
-        Jugador jug2 = new JugadorCampo("Ramos");
-        Jugador jug3 = new JugadorCampo("Iniesta");
-        Jugador jug4 = new JugadorCampo("Torres");
-        Jugador jug5 = new JugadorCampo("Alex");
-        Jugador jug6 = new JugadorCampo("Pepe");
-        jug1.setDorsal(1);
-        jug1.setPosicion("portero");
-        jug2.setDorsal(4);
-        //IO.println(jug1.compareTo(jug2));
-
+        List<Jugador> miPlantilla = List.of(
+        new Portero("Casillas", 1, false),
+        new JugadorCampo("Ramos", 4, true),
+        new JugadorCampo("Torres", 9, false),
+        new JugadorCampo("Iniesta", 8, false),
+        new JugadorCampo("Pepe", 2, false)
+);
+        
         //IO.println(jug1.getNombre() + " con el número " +
         //        jug1.getDorsal() + " es " + jug1.getPosicion());
         //jug1.pasar();
@@ -28,10 +25,6 @@ public class App {
         //jug2.accionObjetivo();
         //jug2.chutar();
 
-        List<Jugador> miPlantilla = new ArrayList<>(List.of(jug1, jug2, jug3, jug4));
-        
-        //He creado la clase EquipoFutbol, y defino métodos para cada
-        //cosa que quiero hacer, como fichar, mostrar, etc.
         EquipoFutbol miEquipo = new EquipoFutbol("España", miPlantilla);
         IO.println("Mi plantilla es: ");
         miEquipo.muestraEquipo();
@@ -44,11 +37,9 @@ public class App {
         //miEquipo.finContrato(jug2);
         //IO.println("Tras el fichaje mi plantilla es: ");
         //miEquipo.muestraEquipo();
-        jug1.setLesion(false);
-        jug2.setLesion(true);
-        jug3.setLesion(false);
-        jug4.setLesion(false);
-        //miEquipo.proxPartido().muestraEquipo();
+
+        IO.println("Lista para el próximo partido:");
+        miEquipo.proxPartido().muestraEquipo();
         //miEquipo.muestraEquipo();
 
         /**try (BufferedReader tuNombre = new BufferedReader(new FileReader("sinensia.txt"))) {
@@ -59,14 +50,19 @@ public class App {
         }*/
 
         //A tener en cuenta: nombre puede ser null, pueden no ser letras
-        IO.println("Hola nuevo jugador, ¿cuál es tu nombre? ");
+        /**IO.println("Hola nuevo jugador, ¿cuál es tu nombre? ");
         String name = null;
         try (BufferedReader br = new BufferedReader(
             new InputStreamReader(System.in, StandardCharsets.UTF_8))){
                 name = br.readLine();
         } catch (IOException e) {
             IO.println("ERROR de I/O: " + e.getMessage());
-        }
+        }*/
+
+        //JugadorCampo usuario(name);
+        //IO.println("¿Qué dorsal quieres?");
+
+
         //Falta pedir el resto de info con sus limitaciones
         //Lo ficho, y ya a hacer lo demás
     }   

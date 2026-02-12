@@ -13,7 +13,13 @@ public final class Portero extends Jugador {
     }
     
     //Constructor
-    public Portero (String nombre){
+    public Portero (String nombre, int dorsal, boolean lesion) {
+        super(nombre);
+        super.setDorsal(dorsal);
+        super.setLesion(lesion);
+    }
+
+    public Portero (String nombre) {
         super(nombre);
     } 
 }
